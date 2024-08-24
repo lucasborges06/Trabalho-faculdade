@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Loja de Bolinhas de Cheiro</title>
+    <link rel="stylesheet" href="css/compra.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Checkout - Loja de Bolinhas de Cheiro</h1>
+        </div>
+    </header>
+
+    <section class="checkout-section">
+        <div class="container">
+            <h2>Finalize sua Compra</h2>
+            <p>Você escolheu o produto: <strong>Chá Verde</strong></p>
+            <p>Escolha sua forma de pagamento:</p>
+            <p>No valor de R$ 10,99</p>
+
+            <form id="payment-form">
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                        <label for="credit-card">
+                            <img src="img/cartão.PNG" alt="Cartão de Crédito/Débito" class="payment-logo">
+                            Cartão de Crédito/Débito
+                        </label>
+                    </div>
+                    <div class="payment-method">
+                        <input type="radio" id="pix" name="payment-method" value="pix">
+                        <label for="pix">
+                            <img src="img/pix.PNG" alt="PIX" class="payment-logo">
+                            PIX
+                        </label>
+                    </div>
+                </div>
+
+                <div id="credit-card-details" class="payment-details">
+                    <h3>Detalhes do Cartão</h3>
+                    <label for="card-number">Número do Cartão:</label>
+                    <input type="text" id="card-number" name="card-number" required placeholder="**** **** **** ****">
+                    
+                    <div class="flex-inputs">
+                        <div class="input-group">
+                            <label for="card-expiry">Data de Validade:</label>
+                            <input type="text" id="card-expiry" name="card-expiry" required placeholder="MM/AA">
+                        </div>
+                        <div class="input-group">
+                            <label for="card-cvc">Código de Segurança:</label>
+                            <input type="text" id="card-cvc" name="card-cvc" required placeholder="***">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pix-details" class="payment-details" style="display: none;">
+                    <h3>Detalhes do PIX</h3>
+                    <p>Para pagar via PIX, utilize a chave abaixo:</p>
+                    <p><strong>chave@pix.com</strong></p>
+                </div>
+
+                <h3>Detalhes de Entrega</h3>
+                <div class="flex-inputs">
+                    <div class="input-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu Nome">
+                    </div>
+                    <div class="input-group">
+                        <label for="address">Endereço:</label>
+                        <input type="text" id="address" name="address" required placeholder="Seu Endereço">
+                    </div>
+                </div>
+                <div class="flex-inputs">
+                    <div class="input-group">
+                        <label for="city">Cidade:</label>
+                        <input type="text" id="city" name="city" required placeholder="Sua Cidade">
+                    </div>
+                    <div class="input-group">
+                        <label for="zip">CEP:</label>
+                        <input type="text" id="zip" name="zip" required placeholder="Seu CEP">
+                    </div>
+                </div>
+
+                <button type="submit" class="cta-button">Finalizar Compra</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Loja de Bolinhas de Cheiro. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const creditCardInput = document.getElementById('credit-card');
+        const pixInput = document.getElementById('pix');
+        const creditCardDetails = document.getElementById('credit-card-details');
+        const pixDetails = document.getElementById('pix-details');
+
+        creditCardInput.addEventListener('change', () => {
+            creditCardDetails.style.display = 'block';
+            pixDetails.style.display = 'none';
+        });
+
+        pixInput.addEventListener('change', () => {
+            creditCardDetails.style.display = 'none';
+            pixDetails.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
